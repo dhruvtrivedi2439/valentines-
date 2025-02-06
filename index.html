@@ -3,19 +3,71 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Be My Valentine?</title>
-    <link rel="stylesheet" href="style.css">
-    <script defer src="script.js"></script>
+    <title>Hey Lover 💖</title>
+    <style>
+        body {
+            text-align: center;
+            background: pink;
+            font-family: 'Comic Sans MS', cursive;
+        }
+        .container {
+            padding: 50px;
+        }
+        .button {
+            background: hotpink;
+            border: none;
+            padding: 15px 30px;
+            font-size: 20px;
+            color: white;
+            cursor: pointer;
+            margin: 10px;
+            border-radius: 10px;
+        }
+        .hidden {
+            display: none;
+        }
+    </style>
 </head>
 <body>
     <div class="container">
-        <h1>Hey Love ❤️</h1>
-        <p>Will you be my Valentine?</p>
-        <div class="buttons">
-            <button id="yesButton">Yes</button>
-            <button id="noButton">No</button>
-        </div>
-        <p id="response" class="hidden"></p>
+        <h1>Hey, Lover 💖</h1>
+        <p>Let's go on a little journey!</p>
+        <button class="button" onclick="nextPage()">Next ➡️</button>
     </div>
+
+    <script>
+        function nextPage() {
+            document.body.innerHTML = `
+                <div class='container'>
+                    <h1>You're my Ken, I'm your Barbie 💕</h1>
+                    <p>Will you be my Valentine?</p>
+                    <button class='button' onclick='yesResponse()'>Yes 💖</button>
+                    <button class='button' id='noBtn' onclick='noResponse()'>No 😢</button>
+                </div>
+            `;
+        }
+
+        function yesResponse() {
+            document.body.innerHTML = `
+                <div class='container'>
+                    <h1>Yay! 💃 You're my Valentine! 💕</h1>
+                    <p>Now get ready for the best Valentine's Day ever! 🎀</p>
+                </div>
+            `;
+        }
+
+        function noResponse() {
+            let noBtn = document.getElementById("noBtn");
+            noBtn.style.position = "absolute";
+            noBtn.style.left = Math.random() * window.innerWidth + "px";
+            noBtn.style.top = Math.random() * window.innerHeight + "px";
+            
+            let newYes = document.createElement("button");
+            newYes.className = "button";
+            newYes.innerHTML = "Yes 💖";
+            newYes.onclick = yesResponse;
+            document.body.appendChild(newYes);
+        }
+    </script>
 </body>
 </html>
