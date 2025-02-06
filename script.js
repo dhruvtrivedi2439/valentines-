@@ -38,7 +38,7 @@ yesBtn.addEventListener('click', () => {
 
 // Handle "No" button click
 noBtn.addEventListener('click', () => {
-  let count = 1; // Start with 1 "Yes" button
+  let count = 5; // Start with 1 "Yes" button
   const spawnYesButtons = () => {
     for (let i = 0; i < count; i++) {
       const newYesBtn = document.createElement('button');
